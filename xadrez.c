@@ -6,8 +6,13 @@ int main() {
     const int TorreMov = 5;
     const int BispMov = 5;
     const int RainhaMov = 8;
+    const int CavaloMov = 3;
     int controlW = 0;
     int controlD = 0;
+    int controlC_Esquerda;
+    int controlC_Baixo;
+
+    // Lógica do movimento da Torre
 
     while (controlW < TorreMov ) {
         printf("Movimento da Torre: ");
@@ -16,6 +21,8 @@ int main() {
     }
 
     printf("---------\n");
+
+    // Lógica do movimento do Bispo
 
     do {
         controlD ++;
@@ -27,20 +34,39 @@ int main() {
 
     printf("---------\n");
 
+    // Lógica do movimento da rainha
+
     for (int i = 0; i < 8; i++) {
         printf("Movimento da Rainha: ");
         printf("Esquerda\n");
 
     }
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    
+    printf("---------\n");
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // Lógica do movimento do cavalo
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    // for que contabiliza os 3 movimentos básicos do cavalo
+    for (int i = 0; i < CavaloMov; i++) {
+        // while que imprime os movimentos direcionados do cavalo e fixo para no final movimentar para esquerda.
+        while (controlC_Esquerda < 1) {
+            printf("Movimento do Cavalo: ");
 
+            // while fixo para movimentar o cavlo para duas casas
+            while (controlC_Baixo < 2)
+            {
+                printf("Baixo, ");
+
+                controlC_Baixo++;
+            }
+            controlC_Esquerda++;
+
+            printf("Esquerda");
+        }
+        
+    }
+
+    printf("\n------------");
 
     return 0;
 }
