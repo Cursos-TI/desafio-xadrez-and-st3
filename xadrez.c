@@ -7,43 +7,92 @@ int main() {
     const int BispMov = 5;
     const int RainhaMov = 8;
     const int CavaloMov = 3;
-    int controlW = 0;
-    int controlD = 0;
-    int controlC_Esquerda;
-    int controlC_Baixo;
+    int j = 0;
+    int colUp = 0;
+    int colRight = 0;
+    
 
-    // Lógica do movimento da Torre
+    // Function de movimento da Torre
+    void FuncMoveTorre(int m) {
 
-    while (controlW < TorreMov ) {
-        printf("Movimento da Torre: ");
-        printf("Direita\n");
-        controlW ++;
+        if (m > 0) {
+            printf(" Direita");
+
+            FuncMoveTorre(m - 1);
+        }
     }
 
-    printf("---------\n");
+    // Function de movimento do Bispo
+    void FuncMoveBispo(int m) {
+        if (m > 0) {
+                colUp++;
+                printf(" Cima");
 
-    // Lógica do movimento do Bispo
+                while (colRight < colUp) {
+                    printf(" Direita");
+                    colRight++;
 
-    do {
-        controlD ++;
-        printf("Movimento do Bispo: ");
-        printf("Cima, ");
-        printf("Direita\n");
-
-    } while (controlD < BispMov);
-
-    printf("---------\n");
-
-    // Lógica do movimento da rainha
-
-    for (int i = 0; i < 8; i++) {
-        printf("Movimento da Rainha: ");
-        printf("Esquerda\n");
-
+                }
+                
+            
+                FuncMoveBispo(m - 1);
+        }
+            
     }
     
-    printf("---------\n");
+    // Function de movimento da Rainha
+    void FuncMoveRainha(int m) {
 
+        if (m > 0) {
+            printf(" Esquerda");
+
+            FuncMoveRainha(m - 1);
+        }
+    }
+
+    // Function de movimento do Cavalo
+    void FuncMoveCavalo(int m) {
+        for (int i = 0; i < m && j != 1; i++) {
+
+            if (i == (m - 1)) {
+                while(j < 1) {
+                printf(" Direita");
+                j++;
+                
+            }
+            break;
+            }
+            printf(" Cima");
+
+        }
+    }
+
+    // Output the data
+
+    printf("------------\n");
+
+    printf("Movimento da Torre para:");
+    FuncMoveTorre(TorreMov);
+
+    printf("\n------------\n");
+
+    printf("Movimento do Bispo para: ");
+    FuncMoveBispo(BispMov);
+
+    printf("\n------------\n");
+
+    printf("Movimento da Rainha para:");
+    FuncMoveRainha(RainhaMov);
+
+    printf("\n------------\n");
+
+    printf("Movimento da Cavalo para:");
+    FuncMoveCavalo(CavaloMov);
+
+    printf("\n------------");
+
+
+    /*
     // Lógica do movimento do cavalo
 
     // for que contabiliza os 3 movimentos básicos do cavalo
@@ -64,9 +113,6 @@ int main() {
             printf("Esquerda");
         }
         
-    }
-
-    printf("\n------------");
-
+    }*/
     return 0;
 }
